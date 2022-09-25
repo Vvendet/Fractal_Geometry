@@ -1,33 +1,32 @@
 from tkinter import *
 import time, random
 
-#Global variables
-gridSize = 10 #side length of each square in grid, in pixel
+#Variáveis globais
+gridSize = 10 #lado de cada celula
 screenSize = 1000
 numCells = int(screenSize/gridSize)
 
 win = Canvas(Tk(),width = screenSize, height = screenSize)
 
-#This is my CA matrix
+#matriz cellular automata
 CA = [[0 for x in range(numCells)] for y in range(numCells)]
 
 
-#Clear the canvas object, redraw grid
+#desenhar o plano
 def InitCanvas():
     win.delete('all')
 
-    #draw grid
     for i in range(numCells):
         win.create_line(0,gridSize * i, screenSize, gridSize * i)
         win.create_line(gridSize * i, 0, gridSize * i, screenSize)
     win.pack()
-
+#atualizar plano
 def RefreshGrid():
     global CA
 
     InitCanvas()
 
-    #Just going to paint the live cells in the CA
+    #pintar as celulas
     for i in range(numCells):
         for j in range(numCells):
             if CA[i][j] == 1:
@@ -44,7 +43,7 @@ def GameOfLife():
     for i in range(numCells):
         for j in range(numCells):
             lives = 0
-
+#contar quantos vivos
             if CA[(i+0)%numCells][(j+1)%numCells] == 1:
                 lives += 1
             if CA[(i+0)%numCells][(j-1)%numCells] == 1:
