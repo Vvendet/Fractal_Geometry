@@ -10,3 +10,5 @@ Um fractal só pode ser definido, segundo Kenneth John Falconer, desta forma se 
     É autossimilar, possui aspecto visual idêntico em qualquer escala;
     Sua dimensão de Hausdorff é maior que sua dimensão topológica; *
     É gerado através de um processo recursivo;
+
+Dessa forma é possível usar princípios da programação para criação dos fractais mais famosos.
